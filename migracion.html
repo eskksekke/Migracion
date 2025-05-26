@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Movilidad y Migración</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    /* Estilos iguales al anterior... */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: linear-gradient(135deg, #f7971e, #ffd200);
+      background-size: 200% 200%;
+      animation: gradientMove 15s ease infinite;
+      color: #222;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      color: #333;
+      letter-spacing: 2px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      color: #333;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ff6600;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: #fff;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+      border-radius: 0 0 40px 40px;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+    .hero-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      text-shadow: 0 1px 5px rgba(0,0,0,0.6);
+    }
+    section {
+      padding: 3rem 0;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 2rem;
+    }
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      align-items: center;
+    }
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      transform: scale(1.05);
+    }
+    article {
+      background: #fff;
+      padding: 1.8rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      color: #444;
+    }
+    article h3 {
+      margin-bottom: 1rem;
+      color: #ff6600;
+    }
+    article p {
+      font-size: 1rem;
+    }
+    footer {
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    form input:focus, form textarea:focus {
+      border-color: #ff6600;
+      outline: none;
+    }
+    form button {
+      background: #ff6600;
+      color: #fff;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+    form button:hover {
+      background: #e55b00;
+    }
+    .contact-info {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: #555;
+    }
+    .contact-info a {
+      color: #ff6600;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      nav ul {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Migración Global</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">Sobre la Migración</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#projects">Proyectos</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Imagen de personas migrantes caminando en carretera">
+    <div class="hero-content" data-aos="fade-up">
+      <h2>Comprendiendo la Migración</h2>
+      <p>La migración es un fenómeno global que conecta culturas, historias y sueños en búsqueda de un mejor futuro.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container grid-2" data-aos="fade-right">
+      <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=800&q=80" alt="Personas migrantes caminando en un sendero" />
+      <div>
+        <h2>¿Qué es la migración?</h2>
+        <p>La migración es el desplazamiento de personas de un lugar a otro, dentro o fuera de sus países, por razones económicas, sociales, políticas o ambientales. Este movimiento puede ser temporal o permanente y afecta a millones de personas en todo el mundo.</p>
+        <p>Este fenómeno influye en la diversidad cultural, el desarrollo económico y la cooperación internacional, pero también plantea retos como la integración, derechos humanos y políticas migratorias.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 data-aos="fade-up">Servicios de apoyo</h2>
+      <div class="grid-3">
+        <article data-aos="zoom-in">
+          <h3>Asesoría legal</h3>
+          <p>Apoyo en trámites migratorios, obtención de documentos y defensa de derechos para migrantes y refugiados.</p>
+        </article>
+        <article data-aos="zoom-in" data-aos-delay="100">
+          <h3>Integración cultural</h3>
+          <p>Programas que fomentan la inclusión social, el aprendizaje de idiomas y la convivencia intercultural.</p>
+        </article>
+        <article data-aos="zoom-in" data-aos-delay="200">
+          <h3>Educación y empleo</h3>
+          <p>Capacitación laboral y acceso a oportunidades educativas para mejorar la calidad de vida de migrantes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 data-aos="fade-up">Proyectos destacados</h2>
+      <div class="grid-3"> <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Manos unidas en apoyo" data-aos="fade-up" data-aos-delay="100" />
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Voluntarios apoyando a migrantes" data-aos="fade-up" data-aos-delay="200" />
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container" data-aos="fade-up">
+      <h2>Contacto</h2>
+      <form>
+        <input type="text" name="name" placeholder="Tu nombre" required />
+        <input type="email" name="email" placeholder="Correo electrónico" required />
+        <textarea name="message" placeholder="Escribe tu mensaje..." required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+      <p class="contact-info">Para consultas urgentes, contáctanos por WhatsApp: <a href="https://wa.me/526221727420" target="_blank" rel="noopener">622 172 7420</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Movilidad y Migración. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  </script>
+</body>
+</html>
